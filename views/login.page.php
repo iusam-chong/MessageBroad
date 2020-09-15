@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
 <body>
     
     <h2>Login</h2>
-
     <form method="post" action="">
         <label>User Name</label>
         <br>
@@ -24,6 +22,5 @@
         <br>
         <button type="submit" name="login" value="1">login</button>
     </form> 
-
 </body>
 </html>

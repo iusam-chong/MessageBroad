@@ -3,7 +3,7 @@
 class Dbh {
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "";
+    private $pwd = "root";
     private $dbName = "message_broad";
 
     protected function connect() {
@@ -24,7 +24,9 @@ class Dbh {
     # Query insert or delete can be use 
     protected function insert($query,$param) {
         $stmt = $this->connect()->prepare($query);
-        $stmt->execute($param);
+        $result = $stmt->execute($param);
+        
+        return $result;
     }
 
     protected function selectAll($query,$param) {

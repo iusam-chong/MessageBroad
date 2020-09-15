@@ -1,4 +1,4 @@
-<?
+<?php
 
 class Users extends Dbh {
 
@@ -33,18 +33,18 @@ public function manualLogin($data): bool {
     # Check user if not exist then return FALSE
     $result = $this->getUser($data->userName);
     if (!$result) {
-       return FALSE;
+       return false;
     }
 
     # Check input password with password from db result, if not match return FALSE
     if (!password_verify($data->userPasswd, $result['user_passwd'])) {
-        return FALSE;
+        return false;
     }
 
     # Call session register method
     $this->registerLoginSession($result['user_id']);
    
-    return TRUE;
+    return true;
 }
 
 # Session login, without user manual login
@@ -67,12 +67,12 @@ public function sessionLogin(): bool {
 
             # renew login session 
             $this->registerLoginSession($result['user_id']);
-            return TRUE;
+            return true;
         }
     }
 
     # Session login failed
-    return FALSE;
+    return false;
 }
 
 # Save session to db 
@@ -102,11 +102,37 @@ public function logout() {
 
 public function getUser($userName) {
         
-    $sql = "SELECT * FROM users WHERE `user_name` = ?";
+    $sql = "SELECT * FROM users WHERE (`user_name` = ?)";
     $param = array($userName);
     $row = $this->select($sql, $param);
     
     return $row;
+}
+
+# Get all user except myself 
+public function getSuggestUser() {
+
+    $row = $this->getUserDataBySession();
+    $userId = $row['user_id'];
+
+    $sql = "SELECT users.user_id, users.user_name FROM users,follower 
+            WHERE (users.user_id != ?) AND follower.follower_id != users.user_id";
+    $param = array($userId);
+    $result = $this->selectAll($sql, $param);
+    
+    return $result;
+}
+
+public function addFollower($followerId) {
+
+    $row = $this->getUserDataBySession();
+    $userId = $row['user_id'];
+
+    $sql = "INSERT INTO `follower` (`user_id`,`follower_id`) VALUES (?,?)";
+    $param = array($userId, $followerId);
+    $result = $this->insert($sql, $param);
+
+    return $result;
 }
 
 public function getUserDataBySession() {
@@ -121,5 +147,3 @@ public function getUserDataBySession() {
 }
 
 }
-
-?>

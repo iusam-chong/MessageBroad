@@ -1,15 +1,12 @@
-<?
-    // require_once('./includes/class-autoload.php');
-    require_once('./classes/dbh.php');
-    require_once('./classes/users.php');
-    require_once('./classes/formatdata.php');
+<?php
+    require_once('./includes/class-autoload.php');
+
     session_start();
 
     $user = new Users();
-
     if ($user->sessionLogin()) {
         header('location: index');
-    } 
+    }
 
     if(isset($_POST['login'])) {
         
