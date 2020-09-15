@@ -12,7 +12,7 @@ class Broad extends Dbh{
         # Make a new Broad
         $sql = "INSERT INTO `broad` (`user_id`) VALUES (?)";
         $param = array($userId);
-        if($this->insert($sql, $param)) {
+        if(!$this->insert($sql, $param)) {
             return false;
         } 
 
@@ -25,7 +25,7 @@ class Broad extends Dbh{
         $data = (object)['broadId' => $row['broad_id'],
                          'userId'  => $userId,
                          'message' => $message];
-        if($this->newMessage($data)) {
+        if(!$this->newMessage($data)) {
             return false;
         }
         return true;
