@@ -3,7 +3,7 @@
 class Broad extends Dbh{
 
     # Create a new Broad
-    public function createBroad($message) {
+    public function createPost($message) {
 
         # Find user ID
         $row = $this->getUserDataBySession();
@@ -21,18 +21,18 @@ class Broad extends Dbh{
         $param = array($userId);
         $row = $this->select($sql,$param);
 
-        # Set data to OBJ and send to newMessage method
+        # Set data to OBJ and send to newComment method
         $data = (object)['broadId' => $row['broad_id'],
                          'userId'  => $userId,
                          'message' => $message];
-        if(!$this->newMessage($data)) {
+        if(!$this->newComment($data)) {
             return false;
         }
         return true;
     }
 
     # Insert a new message
-    public function newMessage($data) {
+    public function newComment($data) {
 
         $sql = "INSERT INTO `message` (`broad_id`,`user_id`,`message_content`) VALUES (? ,? ,?)";
         $param = array($data->broadId ,$data->userId ,$data->message);

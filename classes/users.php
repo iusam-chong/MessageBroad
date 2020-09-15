@@ -115,9 +115,10 @@ public function getSuggestUser() {
     $row = $this->getUserDataBySession();
     $userId = $row['user_id'];
 
-    $sql = "SELECT users.user_id, users.user_name FROM users,follower 
-            WHERE (users.user_id != ?) AND follower.follower_id != users.user_id";
-    $param = array($userId);
+    $sql = "SELECT users.user_id, users.user_name FROM users WHERE NOT EXISTS 
+            (SELECT * FROM follower WHERE follower.follower_id = users.user_id AND follower.user_id = ?)
+            AND (users.user_id != ?)";
+    $param = array($userId, $userId);
     $result = $this->selectAll($sql, $param);
     
     return $result;

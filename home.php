@@ -22,8 +22,8 @@
     $userId = $userData['user_id'];
 
     # Condition action START
-    if (isset($_POST['createBroad'])) {
-        if (!$broad->createBroad($_POST['message']))
+    if (isset($_POST['createPost'])) {
+        if (!$broad->createPost($_POST['message']))
             echo "create post unsuccess!";
     }
 
@@ -33,7 +33,7 @@
         $commentData = new FormatData();
         $commentData->commentForm($userId, $_POST['newComment'], $_POST['comment']);
         
-        if (!$broad->newMessage($commentData))
+        if (!$broad->newComment($commentData))
             echo "comment unsuccess!";   
     }
 
@@ -49,9 +49,9 @@
     # Condition action END
 
     # Future function
-    // if (isset($_POST['followUser'])) {
-    //     $user->addFollower($_POST['followUser']);
-    // }
+    if (isset($_POST['followUser'])) {
+        $user->addFollower($_POST['followUser']);
+    }
 
     # Start Show Page
     $userName = $userData['user_name'];
