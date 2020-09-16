@@ -9,5 +9,3 @@ function myAutoLoader($className) {
 
     require_once $fileName ;
 }
-
-?>

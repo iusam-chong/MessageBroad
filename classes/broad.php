@@ -42,7 +42,7 @@ class Broad extends Dbh{
     }
 
     # Delete message, acuattly is just disable
-    public function disableMessage($messageId) {
+    public function disableComment($messageId) {
 
         $sql = "UPDATE `message` SET `message_enabled` = 0 WHERE `message_id` = ?";
         $param = array($messageId);
@@ -51,9 +51,14 @@ class Broad extends Dbh{
         return $result;
     }
 
-    # Edit message
-    public function modifyMessage(){
+    # Edit message using by message's ID
+    public function modifyComment($data){
 
+        $sql = "UPDATE `message` SET `message_content` = ? WHERE `message_id` = ?";
+        $param = array($data->comment, $data->broadId);
+        $result = $this->insert($sql, $param);
+
+        return $result;
     }
 
     # This method is show all broad from db,
@@ -61,7 +66,7 @@ class Broad extends Dbh{
     public function showAllBroad() {
 
         # Just let it simple, make hard core later
-        $sql = "SELECT * FROM `broad` ";
+        $sql = "SELECT broad.*, users.user_name FROM `broad`,`users` WHERE broad.user_id = users.user_id";
         $param = array(null);
         $result = $this->selectAll($sql, $param);
 

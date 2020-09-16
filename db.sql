@@ -1,21 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2020-09-15 17:02:25
--- 伺服器版本： 10.4.13-MariaDB
--- PHP 版本： 7.4.8
+-- 主機： localhost:8889
+-- 產生時間： 2020 年 09 月 16 日 09:57
+-- 伺服器版本： 5.7.26
+-- PHP 版本： 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- 資料庫： `message_broad`
@@ -28,19 +21,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `broad` (
-  `user_id` int(10) UNSIGNED NOT NULL,
   `broad_id` int(10) UNSIGNED NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
-  `broad_enabled` tinyint(1) UNSIGNED NOT NULL DEFAULT 1
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `message` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `broad_enabled` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `broad`
 --
 
-INSERT INTO `broad` (`user_id`, `broad_id`, `create_time`, `broad_enabled`) VALUES
-(2, 4, '2020-09-14 09:05:19', 1),
-(3, 6, '2020-09-15 03:43:29', 1);
+INSERT INTO `broad` (`broad_id`, `user_id`, `message`, `broad_enabled`, `create_time`) VALUES
+(4, 2, ' I don\'t want any comments on/about my new haircut, thank you!', 1, '2020-09-14 09:05:19'),
+(6, 3, 'this is post 2 ', 1, '2020-09-15 03:43:29'),
+(7, 2, 'this is post 3', 1, '2020-09-16 02:36:45');
 
 -- --------------------------------------------------------
 
@@ -77,9 +72,9 @@ CREATE TABLE `message` (
   `message_id` int(10) UNSIGNED NOT NULL,
   `broad_id` int(10) UNSIGNED NOT NULL,
   `message_content` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `message_enabled` tinyint(1) UNSIGNED DEFAULT 1
+  `message_enabled` tinyint(1) UNSIGNED DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -88,14 +83,18 @@ CREATE TABLE `message` (
 
 INSERT INTO `message` (`message_id`, `broad_id`, `message_content`, `create_time`, `user_id`, `message_enabled`) VALUES
 (1, 4, 'Hello World', '2020-09-14 09:05:19', 2, 1),
-(4, 4, 'This is message 3', '2020-09-14 09:20:00', 2, 1),
+(4, 4, 'This is message 3', '2020-09-14 09:20:00', 2, 0),
 (9, 6, 'Hello there, I\'m glad to been here', '2020-09-15 03:43:29', 3, 1),
 (10, 6, 'Hi, Nice to meet you', '2020-09-15 07:48:07', 2, 1),
 (18, 4, 'Hello World', '2020-09-15 09:00:07', 4, 1),
 (19, 4, 'This Comment will be delete', '2020-09-15 09:09:06', 2, 0),
 (20, 6, 'This Comment will be delete', '2020-09-15 09:09:17', 2, 0),
-(21, 4, 'I want to delete this message', '2020-09-15 09:32:57', 3, 0),
-(22, 4, 'i want delete this comment', '2020-09-15 09:33:22', 3, 0);
+(21, 4, 'I want to delete this message', '2020-09-15 09:32:57', 3, 1),
+(22, 4, 'i want delete this comment', '2020-09-15 09:33:22', 3, 1),
+(23, 6, 'edit comment sucess', '2020-09-15 09:09:17', 2, 0),
+(24, 4, 'new comment', '2020-09-16 02:33:31', 2, 0),
+(25, 7, 'kkkkkk', '2020-09-16 02:36:45', 2, 1),
+(26, 4, 'im alrdy edit this comment', '2020-09-16 03:23:03', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -107,8 +106,8 @@ CREATE TABLE `users` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `user_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `user_passwd` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user_reg_time` timestamp NOT NULL DEFAULT current_timestamp(),
-  `user_enabled` tinyint(1) UNSIGNED NOT NULL DEFAULT 1
+  `user_reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_enabled` tinyint(1) UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -116,10 +115,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_passwd`, `user_reg_time`, `user_enabled`) VALUES
-(1, 'dfgdfgfd', '$2y$10$5lWCRFrhUl39yo6BBLdf4eKJx/6Uqta83FHrVyuFvvNLFF5KVVV/2', '2020-09-14 06:32:41', 1),
+(1, 'vicky', '$2y$10$5lWCRFrhUl39yo6BBLdf4eKJx/6Uqta83FHrVyuFvvNLFF5KVVV/2', '2020-09-14 06:32:41', 1),
 (2, 'admin', '$2y$10$nEEvkzEbh.69zZmnD3gzGOIT1eK/7Ny1tc7lO3UmhyavMNUIWCtsW', '2020-09-14 06:49:22', 1),
 (3, 'sam_chong', '$2y$10$vGRQOxnCCKGlOo05tJVzYuMqnJe12HdmbJuIvr3Z4bPGlhKe2Jjcm', '2020-09-15 03:42:16', 1),
-(4, 'john_wick', '$2y$10$Cx7SsuDOC7VK0M.B1MnQaOmvLUanTcfaK74YMAUd0X6Z7XLLDOxZm', '2020-09-15 08:59:29', 1);
+(4, 'john_wick', '$2y$10$Cx7SsuDOC7VK0M.B1MnQaOmvLUanTcfaK74YMAUd0X6Z7XLLDOxZm', '2020-09-15 08:59:29', 1),
+(5, 'Harry Wardana', '$2y$10$LrNHRJl/ymHvqy0yhSV3huQcRlrZ2PFONYDKC3b9bbbmuGJBuki/m', '2020-09-16 08:02:47', 1);
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_passwd`, `user_reg_time`, `us
 CREATE TABLE `user_sessions` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `session_id` varchar(255) NOT NULL,
-  `login_time` timestamp NOT NULL DEFAULT current_timestamp()
+  `login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -138,9 +138,7 @@ CREATE TABLE `user_sessions` (
 --
 
 INSERT INTO `user_sessions` (`user_id`, `session_id`, `login_time`) VALUES
-(2, '6e454v0vo3hf0spfae5uslpbjq', '2020-09-15 14:57:45'),
-(2, 'a80nf43dvj47su2qqo2dk7qrcg', '2020-09-15 09:33:25'),
-(3, 'm895kovhtuaj98dl00eid7kg36', '2020-09-15 09:33:22');
+(2, 'db2bho539h180cpgob030bvhih', '2020-09-16 09:52:42');
 
 --
 -- 已傾印資料表的索引
@@ -189,7 +187,7 @@ ALTER TABLE `user_sessions`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `broad`
 --
 ALTER TABLE `broad`
-  MODIFY `broad_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `broad_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `follower`
@@ -201,13 +199,13 @@ ALTER TABLE `follower`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 已傾印資料表的限制式
@@ -225,8 +223,3 @@ ALTER TABLE `follower`
 --
 ALTER TABLE `message`
   ADD CONSTRAINT `message_fk` FOREIGN KEY (`broad_id`) REFERENCES `broad` (`broad_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

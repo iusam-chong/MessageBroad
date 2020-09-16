@@ -10,7 +10,7 @@
 
 <?php
     require_once('./views/blade/navbar.page.php');
-    require_once('./views/blade/broad.page.php');
+    require_once('./views/blade/postBody.page.php');
 ?>
 
 

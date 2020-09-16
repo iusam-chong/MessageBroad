@@ -18,4 +18,9 @@ class FormatData {
         $this->message = $comment;
     }
 
+    public function EditCommentForm($broadId, $comment) {
+        $this->broadId = $broadId;
+        $this->comment = $comment;
+    }
+
 }

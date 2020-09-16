@@ -4,19 +4,21 @@
     session_start();
     
     $user = new Users();
-
     if ($user->sessionLogin()) {
         header('location: index');
-    } 
+    }
 
     if(isset($_POST['register'])) {
         
-        $rgData = new FormatData();
-        $rgData->registerForm($_POST['textUserName'],$_POST['textPassword']);
+        if ($_POST['textPasswordConfirm'] === $_POST['textPasswordConfirm']) {
+            
+            $rgData = new FormatData();
+            $rgData->registerForm($_POST['textUserName'],$_POST['textPassword']);
 
-        if ($user->createUser($rgData)){
+            if ($user->createUser($rgData)){
 
-            header('location: login');
+                header('location: login');
+            }
         }
     }
 
