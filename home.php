@@ -11,14 +11,21 @@
         $userId = $userData['user_id'];
         $userName = $userData['user_name'];
     }
+
+    # Set cookie to save postId to control post page
+    if (isset($_POST['postId'])) {
+        setcookie('postId', $_POST['postId']);
+        header('location: post');
+    }
     
     # Condition action START
     if (isset($_POST['createPost'])) {
-        if (!$broad->createPost($_POST['message']))
+        
+        $content = nl2br($_POST['message']);
+        if (!$broad->createPost($content))
             echo "create post unsuccess!";
     }
     # Condition action END
-
 
     # follower method
     if (isset($_POST['followUser'])) {

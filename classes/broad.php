@@ -9,26 +9,39 @@ class Broad extends Dbh{
         $row = $this->getUserDataBySession();
         $userId = $row['user_id'];
     
-        # Make a new Broad
-        $sql = "INSERT INTO `broad` (`user_id`) VALUES (?)";
-        $param = array($userId);
+        # Make a new Broad/Post
+        $sql = "INSERT INTO `broad` (`user_id`,`message`) VALUES (?,?)";
+        $param = array($userId,$message);
         if(!$this->insert($sql, $param)) {
             return false;
         } 
 
-        # Get this new broad id
-        $sql = "SELECT `broad_id` FROM `broad` WHERE `user_id` = (?) ORDER BY `create_time` DESC LIMIT 1";
-        $param = array($userId);
-        $row = $this->select($sql,$param);
+        return true;
+    }
 
-        # Set data to OBJ and send to newComment method
-        $data = (object)['broadId' => $row['broad_id'],
-                         'userId'  => $userId,
-                         'message' => $message];
-        if(!$this->newComment($data)) {
+    public function disablePost($broadId) {
+
+        $sql = "UPDATE `broad` SET `broad_enabled` = 0 WHERE `broad_id` = ?";
+        $param = array($broadId);
+        $result = $this->insert($sql, $param);
+        if (!$result) {
             return false;
         }
-        return true;
+
+        $sql = "UPDATE `message` SET `message_enabled` = 0 WHERE `broad_id` = ?";
+        $param = array($broadId);
+        $result = $this->insert($sql, $param);
+        
+        return $result;
+    }
+
+    public function modifyPost($data) {
+
+        $sql = "UPDATE `broad` SET `message` = ? WHERE `broad_id` = ?";
+        $param = array($data->comment, $data->broadId);
+        $result = $this->insert($sql, $param);
+
+        return $result;
     }
 
     # Insert a new message
@@ -61,12 +74,33 @@ class Broad extends Dbh{
         return $result;
     }
 
+    # Get a broad with broad's id
+    public function showBoard($broadId) {
+
+        $sql = "SELECT broad.*, users.user_name,
+                COUNT(CASE WHEN message.message_enabled = 1 THEN 1 ELSE NULL END) AS message_count FROM broad
+                LEFT JOIN message ON broad.broad_id = message.broad_id
+                JOIN users ON users.user_id = broad.user_id
+                WHERE broad.broad_enabled = 1 AND (broad.broad_id = ?)
+                GROUP BY broad.broad_id
+                ORDER BY broad.create_time DESC";
+        $param = array($broadId);
+        $result = $this->select($sql, $param);
+
+        return $result;
+    }
+
     # This method is show all broad from db,
     # we can create one showBoard is only show friend's broad
     public function showAllBroad() {
 
-        # Just let it simple, make hard core later
-        $sql = "SELECT broad.*, users.user_name FROM `broad`,`users` WHERE broad.user_id = users.user_id";
+        $sql = "SELECT broad.*, users.user_name,
+                COUNT(CASE WHEN message.message_enabled = 1 THEN 1 ELSE NULL END) AS message_count FROM broad
+                LEFT JOIN message ON broad.broad_id = message.broad_id
+                JOIN users ON users.user_id = broad.user_id
+                WHERE broad.broad_enabled = 1
+                GROUP BY broad.broad_id
+                ORDER BY broad.create_time DESC";
         $param = array(null);
         $result = $this->selectAll($sql, $param);
 

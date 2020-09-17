@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost:8889
--- 產生時間： 2020 年 09 月 16 日 09:57
+-- 產生時間： 2020 年 09 月 17 日 10:10
 -- 伺服器版本： 5.7.26
 -- PHP 版本： 7.4.2
 
@@ -34,8 +34,21 @@ CREATE TABLE `broad` (
 
 INSERT INTO `broad` (`broad_id`, `user_id`, `message`, `broad_enabled`, `create_time`) VALUES
 (4, 2, ' I don\'t want any comments on/about my new haircut, thank you!', 1, '2020-09-14 09:05:19'),
-(6, 3, 'this is post 2 ', 1, '2020-09-15 03:43:29'),
-(7, 2, 'this is post 3', 1, '2020-09-16 02:36:45');
+(6, 3, 'modify post id = 88', 1, '2020-09-15 03:43:29'),
+(7, 2, 'this is post 3', 1, '2020-09-16 02:36:45'),
+(8, 4, 'Guns. Lots of Guns. More Guns.', 1, '2020-09-17 01:51:34'),
+(9, 3, 'test post delete ', 0, '2020-09-17 02:54:10'),
+(10, 4, '1111', 0, '2020-09-17 09:06:51'),
+(11, 3, 'fsdfsdfsdf', 0, '2020-09-17 09:12:14'),
+(12, 3, 'sdfsdfsdf', 0, '2020-09-17 09:12:17'),
+(13, 3, 'dsfsdfsdf', 0, '2020-09-17 09:12:20'),
+(14, 3, 'sdfsdfsdf', 0, '2020-09-17 09:12:28'),
+(15, 3, 'wrwerwedv', 0, '2020-09-17 09:12:31'),
+(16, 4, 'wwwwww\r\n', 0, '2020-09-17 09:13:52'),
+(17, 4, 'wwwwww', 0, '2020-09-17 09:13:56'),
+(18, 4, 'wwwwwww\r\n', 0, '2020-09-17 09:14:19'),
+(19, 4, 'wwwwww', 0, '2020-09-17 09:14:23'),
+(20, 3, 'new line<br />\r\nnew line', 1, '2020-09-17 09:48:08');
 
 -- --------------------------------------------------------
 
@@ -71,30 +84,44 @@ INSERT INTO `follower` (`id`, `user_id`, `follower_id`) VALUES
 CREATE TABLE `message` (
   `message_id` int(10) UNSIGNED NOT NULL,
   `broad_id` int(10) UNSIGNED NOT NULL,
-  `message_content` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `message_enabled` tinyint(1) UNSIGNED DEFAULT '1'
+  `message_content` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `message_enabled` tinyint(1) UNSIGNED DEFAULT '1',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `message`
 --
 
-INSERT INTO `message` (`message_id`, `broad_id`, `message_content`, `create_time`, `user_id`, `message_enabled`) VALUES
-(1, 4, 'Hello World', '2020-09-14 09:05:19', 2, 1),
-(4, 4, 'This is message 3', '2020-09-14 09:20:00', 2, 0),
-(9, 6, 'Hello there, I\'m glad to been here', '2020-09-15 03:43:29', 3, 1),
-(10, 6, 'Hi, Nice to meet you', '2020-09-15 07:48:07', 2, 1),
-(18, 4, 'Hello World', '2020-09-15 09:00:07', 4, 1),
-(19, 4, 'This Comment will be delete', '2020-09-15 09:09:06', 2, 0),
-(20, 6, 'This Comment will be delete', '2020-09-15 09:09:17', 2, 0),
-(21, 4, 'I want to delete this message', '2020-09-15 09:32:57', 3, 1),
-(22, 4, 'i want delete this comment', '2020-09-15 09:33:22', 3, 1),
-(23, 6, 'edit comment sucess', '2020-09-15 09:09:17', 2, 0),
-(24, 4, 'new comment', '2020-09-16 02:33:31', 2, 0),
-(25, 7, 'kkkkkk', '2020-09-16 02:36:45', 2, 1),
-(26, 4, 'im alrdy edit this comment', '2020-09-16 03:23:03', 2, 1);
+INSERT INTO `message` (`message_id`, `broad_id`, `user_id`, `message_content`, `message_enabled`, `create_time`) VALUES
+(1, 4, 2, 'Hello World !!!', 1, '2020-09-14 09:05:19'),
+(4, 4, 2, 'This is message 3', 0, '2020-09-14 09:20:00'),
+(9, 6, 3, 'Hello there, I\'m glad to been here', 1, '2020-09-15 03:43:29'),
+(10, 6, 2, 'Hi, Nice to meet you', 1, '2020-09-15 07:48:07'),
+(18, 4, 4, 'Hello World', 1, '2020-09-15 09:00:07'),
+(19, 4, 2, 'This Comment will be delete', 0, '2020-09-15 09:09:06'),
+(20, 6, 2, 'This Comment will be delete', 0, '2020-09-15 09:09:17'),
+(21, 4, 3, 'I want to delete this message', 0, '2020-09-15 09:32:57'),
+(22, 4, 3, 'i want delete this comment', 0, '2020-09-15 09:33:22'),
+(23, 6, 2, 'edit comment sucess', 0, '2020-09-15 09:09:17'),
+(24, 4, 2, 'new comment', 0, '2020-09-16 02:33:31'),
+(25, 7, 2, 'kkkkkk', 1, '2020-09-16 02:36:45'),
+(26, 4, 2, 'im alrdy edit this comment !!!', 1, '2020-09-16 03:23:03'),
+(27, 4, 2, 'test new views function ', 0, '2020-09-17 04:19:18'),
+(28, 8, 3, 'is john wick!', 1, '2020-09-17 06:11:27'),
+(29, 8, 3, 'enter\r\nand enter', 0, '2020-09-17 06:11:48'),
+(30, 7, 3, 'kkkkkkkkk', 0, '2020-09-17 09:04:22'),
+(31, 7, 3, 'weehaaaa', 1, '2020-09-17 09:05:18'),
+(32, 7, 3, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\ndfsdfsdf\r\nsdfsdfsdf', 1, '2020-09-17 09:05:30'),
+(33, 4, 3, 'heelo wordl', 1, '2020-09-17 09:06:05'),
+(34, 7, 3, 'dasdasdasdas', 1, '2020-09-17 09:33:00'),
+(35, 20, 3, 'comment new line<br />\r\nnew line', 1, '2020-09-17 09:55:50'),
+(36, 20, 3, 'asdasdadas<br />\r\nASDASDASD', 1, '2020-09-17 10:00:48'),
+(37, 20, 3, 'sdfsdfsdf \\n dfgdfg', 1, '2020-09-17 10:02:12'),
+(38, 20, 3, '123123<br />\r\n123123123', 1, '2020-09-17 10:05:45'),
+(39, 20, 3, 'dasdasdas\r\nAsdasdsadasd', 1, '2020-09-17 10:08:16'),
+(40, 20, 3, 'sdasdasdasd\r\n123123123\r\nasdasdasdasd', 1, '2020-09-17 10:08:41');
 
 -- --------------------------------------------------------
 
@@ -138,7 +165,7 @@ CREATE TABLE `user_sessions` (
 --
 
 INSERT INTO `user_sessions` (`user_id`, `session_id`, `login_time`) VALUES
-(2, 'db2bho539h180cpgob030bvhih', '2020-09-16 09:52:42');
+(3, '001a3dtin3ospei10h4agkbe1v', '2020-09-17 10:09:08');
 
 --
 -- 已傾印資料表的索引
@@ -187,7 +214,7 @@ ALTER TABLE `user_sessions`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `broad`
 --
 ALTER TABLE `broad`
-  MODIFY `broad_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `broad_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `follower`
@@ -199,7 +226,7 @@ ALTER TABLE `follower`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
