@@ -1,8 +1,7 @@
 <?php
     require_once('./includes/class-autoload.php');
+    require_once('./includes/loginStatus.php');
 
-    session_start();
-    
     $user = new Users();
     if ($user->sessionLogin()) {
         header('location: index');

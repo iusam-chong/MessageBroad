@@ -49,8 +49,10 @@
    
     if (isset($_POST['editPost'])) {
 
+        echo '=D';
         # $_POST['editPost']'s value is broadId
         $content = nl2br($_POST['editPostText']);
+        $content = preg_replace("/\r|\n/", "", $content);
 
         $commentData = new FormatData();
         $commentData->EditCommentForm($_POST['editPost'], $content);

@@ -44,11 +44,11 @@
                     <p><?=$broadData['message']?></p>
                 </div>
                 <div class="messageInput">
-                    <form method="post" action="">
+                    <form id="submitForm" method="post" action="">
                         <div class="form-group">
-                            <input type="text" name="editPostText" value="<?=$broadData['message']?>" required="required" class="form-control inputField"></input>
+                            <textarea name="editPostText" required="required" class="form-control inputField" rows="3" style="resize:none;"><?=$broadData['message']?></textarea>
                         </div>
-                        <input type="submit" name="editPost" value="<?=$broadData['broad_id']?>" style="display: none"/>
+                        <input type="text" name="editPost" value="<?=$broadData['broad_id']?>" style="display: none"/>
                     </form>
                     <p style="font-size:10px;" class="text-muted">取消<span class="text-danger">ESC</span> 確認修改<span class="text-success">ENTER</span></p>
                 </div>

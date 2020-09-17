@@ -22,6 +22,8 @@
     if (isset($_POST['createPost'])) {
         
         $content = nl2br($_POST['message']);
+        $content = preg_replace("/\r|\n/", "", $content);
+        
         if (!$broad->createPost($content))
             echo "create post unsuccess!";
     }
