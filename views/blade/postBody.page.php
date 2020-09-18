@@ -44,7 +44,7 @@
                     <p><?=$broadData['message']?></p>
                 </div>
                 <div class="messageInput">
-                    <form id="submitForm" method="post" action="">
+                    <form method="post" action="">
                         <div class="form-group">
                             <textarea name="editPostText" required="required" class="form-control inputField" rows="3" style="resize:none;"><?=$broadData['message']?></textarea>
                         </div>
@@ -101,9 +101,9 @@
                 <div class="messageInput">
                     <form method="post" action="">
                         <div class="form-group">
-                            <input type="text" name="editCommentText" value="<?=$m['message_content']?>" required="required" class="form-control inputField"></input>
+                            <textarea name="editCommentText" required="required" class="form-control inputField" rows="3" style="resize:none;"><?=$m['message_content']?></textarea>
                         </div>
-                        <input type="submit" name="editComment" value="<?=$m['message_id']?>" style="display: none"/>
+                        <input type="text" name="editComment" value="<?=$m['message_id']?>" style="display: none"/>
                     </form>
                     <p style="font-size:10px;" class="text-muted">取消<span class="text-danger">ESC</span> 確認修改<span class="text-success">ENTER</span></p>
                 </div>
@@ -125,9 +125,9 @@
             <div class="caption">
                 <div class="row">
                 <form method="post" action="">
-                    <div class="col-sm-10">
+                    <div class="col-sm-12">
                         <div class="form-group">
-                            <textarea name="newCommentText" rows="1" cols="40" wrap="hard" required="required" class="form-control" placeholder="輸入您的偉論"></textarea>
+                            <textarea name="newCommentText" rows="3" required="required" class="form-control" placeholder="輸入您的留言" style="resize:none;"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-2">

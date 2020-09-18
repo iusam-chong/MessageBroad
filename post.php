@@ -19,10 +19,8 @@
     if (isset($_POST['newComment'])) {
         
         # $_POST['newComment']'s value is broadId
-        $content = $_POST['newCommentText'];
-
         $commentData = new FormatData();
-        $commentData->commentForm($userId, $_POST['newComment'], $content);
+        $commentData->commentForm($userId, $_POST['newComment'], $_POST['newCommentText']);
         
         if (!$broad->newComment($commentData))
             echo "new comment unsuccess!"; 
@@ -31,10 +29,8 @@
     if (isset($_POST['editComment'])) {
 
         # $_POST['editComment']'s value is broadId
-        $content = $_POST['editCommentText'];
-
         $commentData = new FormatData();
-        $commentData->EditCommentForm($_POST['editComment'], $content);
+        $commentData->EditCommentForm($_POST['editComment'], $_POST['editCommentText']);
     
         if (!$broad->modifyComment($commentData))
             echo "edit comment unsuccess!";
@@ -49,13 +45,9 @@
    
     if (isset($_POST['editPost'])) {
 
-        echo '=D';
         # $_POST['editPost']'s value is broadId
-        $content = nl2br($_POST['editPostText']);
-        $content = preg_replace("/\r|\n/", "", $content);
-
         $commentData = new FormatData();
-        $commentData->EditCommentForm($_POST['editPost'], $content);
+        $commentData->EditCommentForm($_POST['editPost'], $_POST['editPostText']);
 
         if(!$broad->modifyPost($commentData)){
             echo "edit post unsuccess!";
@@ -81,5 +73,6 @@
     }
     // print_r($broadData);
 
+    header("Cache-control: private");
     require_once('./views/post.page.php');
     # End Show Page

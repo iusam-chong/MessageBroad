@@ -101,8 +101,7 @@ class Broad extends Dbh{
                 WHERE broad.broad_enabled = 1
                 GROUP BY broad.broad_id
                 ORDER BY broad.create_time DESC";
-        $param = array(null);
-        $result = $this->selectAll($sql, $param);
+        $result = $this->selectAll($sql);
 
         return $result;
     }

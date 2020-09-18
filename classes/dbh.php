@@ -3,7 +3,7 @@
 class Dbh {
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "";
+    private $pwd = "root";
     private $dbName = "message_broad";
 
     protected function connect() {
@@ -13,7 +13,7 @@ class Dbh {
         return $pdo;
     }
 
-    protected function select($query,$param) {
+    protected function select($query, $param = null) {
         $stmt = $this->connect()->prepare($query);
         $stmt->execute($param);
 
@@ -22,7 +22,7 @@ class Dbh {
     }
 
     # Query insert or delete can be use 
-    protected function insert($query,$param) {
+    protected function insert($query, $param) {
 
         $stmt = $this->connect()->prepare($query);
         $result = $stmt->execute($param);
@@ -30,7 +30,7 @@ class Dbh {
         return $result;
     }
 
-    protected function selectAll($query,$param) {
+    protected function selectAll($query, $param = null) {
         $stmt = $this->connect()->prepare($query);
         $stmt->execute($param);
 

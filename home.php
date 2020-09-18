@@ -35,5 +35,7 @@
     }
 
     # Start Show Page
+
+    header("Cache-control: no-cache");
     require_once('./views/home.page.php');
     # End Show Page

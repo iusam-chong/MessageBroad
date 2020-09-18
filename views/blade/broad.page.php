@@ -15,7 +15,7 @@
             <div class="thumbnail">
                 <div class="caption">
                     <p><?=$postAuthor?></p>
-                    <p><span class="glyphicon glyphicon-time"></span><?=$postAt?></p>
+                    <p><span class="glyphicon glyphicon-time"></span> <?=$postAt?></p>
                     <p><?=$postMessage?></p>
                     <div class="row">
                     <div class="col pull-right">

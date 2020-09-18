@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>留言板 - 留下您的偉論</title>
+    <title>留言板 - 寫下您的留言</title>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -46,7 +46,7 @@
 
             if (event.which === 13 && !event.shiftKey) {
                 
-                $(this).find('#submitForm').submit();
+                $(this).find('form').submit();
                 //return false;
                 //event.preventDefault();
             }
