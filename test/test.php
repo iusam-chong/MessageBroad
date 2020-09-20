@@ -2,25 +2,28 @@
 
 $host = "localhost";
 $user = "root";
-$pwd = "root";
+$pwd = "";
 $dbName = "test";
 
 $dsn = 'mysql:host=' . $host . ';dbname=' . $dbName . ';charset=utf8mb4';
 $pdo = new PDO($dsn, $user, $pwd);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
 
-$content = "";
-if (isset($_POST['submit'])){
-    //echo nl2br($_POST['text']);
-    $content = $_POST['text'];
+
+// $content = "";
+// if (isset($_POST['submit'])){
+//     //echo nl2br($_POST['text']);
+//     $content = $_POST['text'];
     
-    $sql = 'INSERT INTO `content` (`text`) VALUES (?)';
-    $param = array($content);
+//     $sql = 'INSERT INTO `content` (`text`) VALUES (?)';
+//     $param = array($content);
 
-    $stmt = $pdo->prepare($sql);
-    if(!$stmt->execute($param)) {
-        echo 'false tp insert' ;
-    }
+//     $stmt = $pdo->prepare($sql);
+//     if(!$stmt->execute($param)) {
+//         echo 'false tp insert' ;
+//     }
+// }
 
     // $sql = 'SELECT * FROM `content` ORDER BY `id` DESC LIMIT 2';
     // $stmt = $pdo->prepare($sql);
@@ -31,7 +34,7 @@ if (isset($_POST['submit'])){
 
     // $content = nl2br(htmlspecialchars($row['text'], ENT_COMPAT));
     // $content = htmlspecialchars($content, ENT_COMPAT);
-}
+
 
 ?>
 
@@ -44,9 +47,9 @@ if (isset($_POST['submit'])){
 </head>
 <body>
     <p>New Comment: </p>
-    <form method="post">
-        <textarea name="text" rows="10" class="form-control" style="width:500px; resize:none;"><?=$text?></textarea>
-        <button type="submit" name="submit">Go</button>
+    <form method="post" action="">
+        <textarea name="dataText" rows="10" class="form-control" style="width:500px; resize:none;"></textarea>
+        <input type="submit" name="postText" value="Go">
     </form>
 
     <div class="postList">
@@ -60,7 +63,7 @@ if (isset($_POST['submit'])){
     // $row = $stmt->fetch();
 
     if($rowCount !== false) {
-        echo $rowCount . '<hr>';
+        //echo $rowCount . '<hr>';
         $result = $stmt->fetchAll();
 
         //print_r($result);
@@ -97,6 +100,23 @@ if (isset($_POST['submit'])){
                         alert('post fail');
                     }
                 });
+            });
+
+            $('form').on('submit',function(e) {
+
+                e.preventDefault();
+                var formData = $('form').serialize();
+
+                $.ajax({
+                    url: 'post.php', // url where to submit the request
+                    type : "POST", // type of action POST || GET
+                    data : formData, // post data || get data
+                    success : function(result) {
+                    // you can see the result from the console
+                    // tab of the developer tools
+                        console.log(result);
+                    }
+                })
             });
         });
     </script>
