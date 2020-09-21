@@ -20,5 +20,9 @@
     }
 
     $smarty = new Smarty;
+    
+    $smarty->assign('titleFront', '登入');
+    $smarty->assign('titleBack', ' - 歡迎回來');
+
     $smarty->display('./templates/login.tpl');
 ?>

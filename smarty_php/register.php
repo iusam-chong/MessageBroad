@@ -23,5 +23,9 @@
     }
 
     $smarty = new Smarty;
+
+    $smarty->assign('titleFront', '註冊');
+    $smarty->assign('titleBack', ' - 加入我們');
+
     $smarty->display('./templates/register.tpl');
 ?>

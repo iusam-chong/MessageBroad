@@ -20,7 +20,7 @@
         $userName = $userData['user_name'];
     } else {
         $userId = "";
-        $userName = "";
+        $userName = "訪客";
     }
 
     $broadData = $broad->showAllBroad();
@@ -38,6 +38,9 @@
     //require_once('./views/home.page.php');
     $smarty = new Smarty;
     $smarty->assign('loginStatus', $loginStatus);
+
+    $smarty->assign('titleFront', $userName);
+    $smarty->assign('titleBack', ' - 留下您的偉論');
 
     $smarty->assign('postList', $broadData);
 
