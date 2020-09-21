@@ -6,7 +6,7 @@
     <div class="caption">
         <form method="post" action="">
             <div class="form-group">
-                <label for="textarea">新增留言</label>
+                <label for="textarea">新增貼文</label>
                 <textarea id="textarea" name="message" rows="3" class="form-control" style="resize:none;" required="required"></textarea>
             </div>
             <button class="btn btn-success" type="submit" name="createPost" value="1">發佈</button>

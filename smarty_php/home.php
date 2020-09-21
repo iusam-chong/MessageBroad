@@ -22,16 +22,17 @@
         $userId = "";
         $userName = "訪客";
     }
-
-    $broadData = $broad->showAllBroad();
     
     # Condition action START
     if (isset($_POST['createPost'])) {
         
         if (!$broad->createPost($_POST['message']))
             echo "create post unsuccess!";
+        
     }
     # Condition action END
+
+    $broadData = $broad->showAllBroad();
 
     # Start Show Page
     header("Cache-control: no-cache");

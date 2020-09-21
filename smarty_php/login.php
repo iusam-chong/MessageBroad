@@ -20,6 +20,7 @@
     }
 
     $smarty = new Smarty;
+    $smarty->assign('loginStatus', $loginStatus);
     
     $smarty->assign('titleFront', '登入');
     $smarty->assign('titleBack', ' - 歡迎回來');

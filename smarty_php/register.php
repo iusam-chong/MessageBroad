@@ -23,6 +23,7 @@
     }
 
     $smarty = new Smarty;
+    $smarty->assign('loginStatus', $loginStatus);
 
     $smarty->assign('titleFront', '註冊');
     $smarty->assign('titleBack', ' - 加入我們');
