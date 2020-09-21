@@ -21,18 +21,15 @@
     # Condition action START
     if (isset($_POST['createPost'])) {
         
-        $content = nl2br($_POST['message']);
-        $content = preg_replace("/\r|\n/", "", $content);
-        
-        if (!$broad->createPost($content))
+        if (!$broad->createPost($_POST['message']))
             echo "create post unsuccess!";
     }
     # Condition action END
 
     # follower method
-    if (isset($_POST['followUser'])) {
-        $user->addFollower($_POST['followUser']);
-    }
+    // if (isset($_POST['followUser'])) {
+    //     $user->addFollower($_POST['followUser']);
+    // }
 
     # Start Show Page
 

@@ -1,34 +1,34 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-21 04:14:17
-  from '/Users/sam_chong/Documents/Github/smarty_php/templates/index.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-21 06:42:50
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/index_smarty.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f682899859696_79712422',
+  'unifunc' => 'content_5f684b6a91fc16_97002042',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
-    '1ce8017f72f31a6d1b8729c09b3c5f8d5f9ad87d' => 
+    '4f93095550c2aec26d99e0c4e6d54f0b1358a820' => 
     array (
-      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/index.tpl',
-      1 => 1600661653,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/index_smarty.tpl',
+      1 => 1600670559,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:header.tpl' => 1,
-    'file:footer.tpl' => 1,
+    'file:header_smarty.tpl' => 1,
+    'file:footer_smarty.tpl' => 1,
   ),
 ),false)) {
-function content_5f682899859696_79712422 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f684b6a91fc16_97002042 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Users/sam_chong/Documents/Github/smarty_php/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/Users/sam_chong/Documents/Github/smarty_php/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),2=>array('file'=>'/Users/sam_chong/Documents/Github/smarty_php/libs/plugins/function.html_select_date.php','function'=>'smarty_function_html_select_date',),3=>array('file'=>'/Users/sam_chong/Documents/Github/smarty_php/libs/plugins/function.html_select_time.php','function'=>'smarty_function_html_select_time',),4=>array('file'=>'/Users/sam_chong/Documents/Github/smarty_php/libs/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
-$_smarty_tpl->compiled->nocache_hash = '4971276185f6828997d86e7_28076787';
+$_smarty_tpl->compiled->nocache_hash = '16005382245f684b6a8b63c5_95202253';
 $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf", "setup", 0);
 ?>
 
-<?php $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array('title'=>'foo'), 0, false);
+<?php $_smarty_tpl->_subTemplateRender("file:header_smarty.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array('title'=>'foo'), 0, false);
 ?>
 
 <PRE>
@@ -47,14 +47,14 @@ $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf"
     Example of accessing server environment variable SERVER_NAME: <?php echo $_SERVER['SERVER_NAME'];?>
 
 
-    The value of {{$Name}} is <b><?php echo '/*%%SmartyNocache:4971276185f6828997d86e7_28076787%%*/<?php echo $_smarty_tpl->tpl_vars[\'Name\']->value;?>
-/*/%%SmartyNocache:4971276185f6828997d86e7_28076787%%*/';?>
+    The value of {{$Name}} is <b><?php echo '/*%%SmartyNocache:16005382245f684b6a8b63c5_95202253%%*/<?php echo $_smarty_tpl->tpl_vars[\'Name\']->value;?>
+/*/%%SmartyNocache:16005382245f684b6a8b63c5_95202253%%*/';?>
 </b>
 
 variable modifier example of {{$Name|upper}}
 
-<b><?php echo '/*%%SmartyNocache:4971276185f6828997d86e7_28076787%%*/<?php echo mb_strtoupper($_smarty_tpl->tpl_vars[\'Name\']->value, \'UTF-8\');?>
-/*/%%SmartyNocache:4971276185f6828997d86e7_28076787%%*/';?>
+<b><?php echo '/*%%SmartyNocache:16005382245f684b6a8b63c5_95202253%%*/<?php echo mb_strtoupper($_smarty_tpl->tpl_vars[\'Name\']->value, \'UTF-8\');?>
+/*/%%SmartyNocache:16005382245f684b6a8b63c5_95202253%%*/';?>
 </b>
 
 
@@ -141,6 +141,6 @@ This is an example of the html_options function:
     </select>
 </form>
 
-<?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
+<?php $_smarty_tpl->_subTemplateRender("file:footer_smarty.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }

@@ -16,7 +16,7 @@
                 <div class="caption">
                     <p><?=$postAuthor?></p>
                     <p><span class="glyphicon glyphicon-time"></span> <?=$postAt?></p>
-                    <p><?=$postMessage?></p>
+                    <p style="word-wrap: break-word;"><?=nl2br(htmlspecialchars($postMessage, ENT_COMPAT))?></p>
                     <div class="row">
                     <div class="col pull-right">
                         <span style="padding-right:15px">

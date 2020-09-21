@@ -1,36 +1,36 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-21 06:38:28
-  from '/Users/sam_chong/Documents/Github/smarty_php/templates/index.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-21 06:43:18
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/index_smarty.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f684a64555f45_59257499',
+  'unifunc' => 'content_5f684b862ddf54_86438212',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
-    '1ce8017f72f31a6d1b8729c09b3c5f8d5f9ad87d' => 
+    '4f93095550c2aec26d99e0c4e6d54f0b1358a820' => 
     array (
-      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/index.tpl',
-      1 => 1600661653,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/index_smarty.tpl',
+      1 => 1600670559,
       2 => 'file',
     ),
-    'f5a3f6bc3d21bb882fe5c64e9c25217661c1e66a' => 
+    '4708eaff209183a4de53e1b06b81ca368523097b' => 
     array (
-      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/header.tpl',
-      1 => 1586815368,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/header_smarty.tpl',
+      1 => 1600670595,
       2 => 'file',
     ),
-    '19f9e0b715b4edfe5029ddfaf41903ac7bcf5bc8' => 
+    '9726c968dfafc855e8921f518b7669b00b6d5eea' => 
     array (
-      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/footer.tpl',
-      1 => 1586815368,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/footer_smarty.tpl',
+      1 => 1600670512,
       2 => 'file',
     ),
   ),
   'cache_lifetime' => 120,
 ),true)) {
-function content_5f684a64555f45_59257499 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f684b862ddf54_86438212 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <HTML>
 <HEAD>
@@ -43,9 +43,9 @@ function content_5f684a64555f45_59257499 (Smarty_Internal_Template $_smarty_tpl)
 
     <b>                Title: Welcome To Smarty!
         </b>
-    The current date and time is 2020-09-21 06:38:28
+    The current date and time is 2020-09-21 06:43:18
 
-    The value of global assigned variable $SCRIPT_NAME is /smarty_php/index.php
+    The value of global assigned variable $SCRIPT_NAME is /smarty_php/index_smarty.php
 
     Example of accessing server environment variable SERVER_NAME: localhost
 
@@ -86,7 +86,7 @@ An example of a section loop:
         <p>
 
         testing strip tags
-        <table border=0><tr><td><A HREF="/smarty_php/index.php"><font color="red">This is a test </font></A></td></tr></table>
+        <table border=0><tr><td><A HREF="/smarty_php/index_smarty.php"><font color="red">This is a test </font></A></td></tr></table>
 
 </PRE>
 
@@ -213,12 +213,12 @@ This is an example of the html_select_time function:
 <option value="35">35</option>
 <option value="36">36</option>
 <option value="37">37</option>
-<option value="38" selected="selected">38</option>
+<option value="38">38</option>
 <option value="39">39</option>
 <option value="40">40</option>
 <option value="41">41</option>
 <option value="42">42</option>
-<option value="43">43</option>
+<option value="43" selected="selected">43</option>
 <option value="44">44</option>
 <option value="45">45</option>
 <option value="46">46</option>
@@ -255,7 +255,7 @@ This is an example of the html_select_time function:
 <option value="15">15</option>
 <option value="16">16</option>
 <option value="17">17</option>
-<option value="18">18</option>
+<option value="18" selected="selected">18</option>
 <option value="19">19</option>
 <option value="20">20</option>
 <option value="21">21</option>
@@ -265,7 +265,7 @@ This is an example of the html_select_time function:
 <option value="25">25</option>
 <option value="26">26</option>
 <option value="27">27</option>
-<option value="28" selected="selected">28</option>
+<option value="28">28</option>
 <option value="29">29</option>
 <option value="30">30</option>
 <option value="31">31</option>

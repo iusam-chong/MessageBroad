@@ -1,0 +1,48 @@
+<?php
+    require_once('./libs/Smarty.class.php');
+    require_once('./includes/class-autoload.php');
+    require_once('./includes/loginStatus.php');
+    
+    $user = new Users();
+    $broad = new Broad();
+
+    # Set cookie to save postId to control post page
+    if (isset($_POST['postId'])) {
+        setcookie('postId', $_POST['postId']);
+        header('location: post');
+    }
+
+    # If user logged in, get current user data
+    if ($loginStatus) {
+        $userData = $user->getUserDataBySession();
+
+        $userId = $userData['user_id'];
+        $userName = $userData['user_name'];
+    } else {
+        $userId = "";
+        $userName = "";
+    }
+
+    $broadData = $broad->showAllBroad();
+    
+    # Condition action START
+    if (isset($_POST['createPost'])) {
+        
+        if (!$broad->createPost($_POST['message']))
+            echo "create post unsuccess!";
+    }
+    # Condition action END
+
+    # Start Show Page
+    header("Cache-control: no-cache");
+    //require_once('./views/home.page.php');
+    $smarty = new Smarty;
+    $smarty->assign('loginStatus', $loginStatus);
+
+    $smarty->assign('postList', $broadData);
+
+    $smarty->assign('userId', $userId);
+    $smarty->assign('userName', $userName);
+
+    $smarty->display('./templates/home.tpl');
+    # End Show Page
