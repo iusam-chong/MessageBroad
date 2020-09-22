@@ -1,6 +1,7 @@
-    {{include file="blade/header.tpl"}}
-    {{include file="blade/navbar.tpl"}}
+{{include file="blade/header.tpl"}}
+{{include file="blade/navbar.tpl"}}
 
-    {{include file="blade/loginform.tpl"}}
-</body>
-</html>
+{{* main content *}}
+{{include file="blade/loginform.tpl"}}
+
+{{include file="blade/footer.tpl"}}

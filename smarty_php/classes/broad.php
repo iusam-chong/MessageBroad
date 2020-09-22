@@ -106,6 +106,29 @@ class Broad extends Dbh{
         return $result;
     }
 
+    public function showLimitBroad($startOn) {
+
+        $sql = "SELECT broad.*, users.user_name,
+                COUNT(CASE WHEN message.message_enabled = 1 THEN 1 ELSE NULL END) AS message_count FROM broad
+                LEFT JOIN message ON broad.broad_id = message.broad_id
+                JOIN users ON users.user_id = broad.user_id
+                WHERE broad.broad_enabled = 1
+                GROUP BY broad.broad_id
+                ORDER BY broad.create_time DESC LIMIT 5 OFFSET ?";
+        $param = array($startOn);
+        $result = $this->selectAll($sql,$param);
+
+        return $result;
+    }
+
+    public function countBroad() {
+
+        $sql = "SELECT COUNT(*) AS `postCount` FROM broad WHERE broad_enabled = 1";
+        $result = $this->select($sql);
+
+        return $result['postCount'];
+    }
+
     # Get Message from broadId
     public function showMessage($broadId) {
 

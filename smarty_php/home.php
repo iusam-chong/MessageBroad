@@ -24,16 +24,17 @@
     }
     
     # Condition action START
-    if (isset($_POST['createPost'])) {
+    // if (isset($_POST['createPost'])) {
         
-        if (!$broad->createPost($_POST['message']))
-            echo "create post unsuccess!";
+    //     if (!$broad->createPost($_POST['message']))
+    //         echo "create post unsuccess!";
         
-    }
+    // }
     # Condition action END
 
-    $broadData = $broad->showAllBroad();
-
+    # get LimitBroad OFFSET by 0
+    $broadData = $broad->showLimitBroad(0);
+    
     # Start Show Page
     header("Cache-control: no-cache");
     //require_once('./views/home.page.php');

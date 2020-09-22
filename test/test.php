@@ -53,31 +53,35 @@ $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
     </form>
 
     <div class="postList">
-    <?php 
+        <?php 
 
-    $sql = 'SELECT * FROM `content` ORDER BY `id` DESC LIMIT 5';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
+        $sql = 'SELECT * FROM `content` ORDER BY `id` DESC LIMIT 5';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
 
-    $rowCount = $stmt->rowCount(); 
-    // $row = $stmt->fetch();
+        $rowCount = $stmt->rowCount(); 
+        // $row = $stmt->fetch();
 
-    if($rowCount !== false) {
-        //echo $rowCount . '<hr>';
-        $result = $stmt->fetchAll();
+        if($rowCount !== false) {
+            //echo $rowCount . '<hr>';
+            $result = $stmt->fetchAll();
 
-        //print_r($result);
-        foreach ($result as $r) {
-            $postId = $r['id'];
-            $postContent = nl2br(htmlspecialchars($r['text'], ENT_COMPAT));
-    ?>
-    <div class="list_item"><?php echo 'PostId : '.$postId.'<br>'?><?=$postContent?></div><hr>
-    <?php } ?>
-    <div class="show_more_main" id="show_more_main<?=$postId?>">
-        <span id="<?=$postId; ?>" class="show_more" title="Load more posts">Show more</span>
-        <span class="loding" style="display: none;"><span class="loding_txt">Loading...</span></span>
-    </div>
-    <?php } ?>
+            //print_r($result);
+            foreach ($result as $r) {
+                $postId = $r['id'];
+                $postContent = nl2br(htmlspecialchars($r['text'], ENT_COMPAT));
+        ?>
+
+        <div class="list_item"><?php echo 'PostId : '.$postId.'<br>'?><?=$postContent?></div><hr>
+        
+        <?php } ?>
+
+        <div class="show_more_main" id="show_more_main<?=$postId?>">
+            <span id="<?=$postId; ?>" class="show_more" title="Load more posts">Show more</span>
+            <span class="loding" style="display: none;"><span class="loding_txt">Loading...</span></span>
+        </div>
+        
+        <?php } ?>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

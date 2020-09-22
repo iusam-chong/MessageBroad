@@ -73,7 +73,7 @@
                 <div class="modal-footer">
                     <form method="post" action="">
                         <input type="text" name="dltComment" value="{{$comment.message_id}}" style="display: none"/>
-                        <button type="submit" class="btn btn-warning">確認</button>
+                        <button type="submit" class="btn btn-success">確認</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
                     </form>
                 </div>
