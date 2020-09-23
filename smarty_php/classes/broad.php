@@ -152,4 +152,15 @@ class Broad extends Dbh{
     
         return $result;
     }
+
+    public function checkBroadOwner($broadId) {
+        $row = $this->getUserDataBySession();
+        $userId = $row['user_id'];
+
+        $sql = "SELECT * FROM `broad` WHERE `user_id`= ? AND `broad_id` = ?";
+        $param = array($userId,$broadId);
+        $result = $this->select($sql, $param);
+
+        return $result;
+    }
 }

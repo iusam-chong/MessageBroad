@@ -1,4 +1,28 @@
-<div class="container">
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-09-23 17:42:19
+  from 'C:\Users\ALPHA\Documents\Github\smarty_php\templates\blade\postbody.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5f6b6cdbda9fd7_69908953',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '595ff248b5bb6b3877ef33a6fe8a118d9c549e96' => 
+    array (
+      0 => 'C:\\Users\\ALPHA\\Documents\\Github\\smarty_php\\templates\\blade\\postbody.tpl',
+      1 => 1600875413,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:blade/commentlist.tpl' => 1,
+  ),
+),false)) {
+function content_5f6b6cdbda9fd7_69908953 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="container">
     <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
     <div class="thumbnail">
@@ -6,11 +30,13 @@
     <div class="editStatus">
         <div class="row">
             <div class="col-sm-8">
-                <p>{{$post.user_name}}</p>
-                <p><span class="glyphicon glyphicon-time"></span> {{$post.create_time}}</p>
+                <p><?php echo $_smarty_tpl->tpl_vars['post']->value['user_name'];?>
+</p>
+                <p><span class="glyphicon glyphicon-time"></span> <?php echo $_smarty_tpl->tpl_vars['post']->value['create_time'];?>
+</p>
             </div>
 
-            {{if $post.user_id === $userId}}
+            <?php if ($_smarty_tpl->tpl_vars['post']->value['user_id'] === $_smarty_tpl->tpl_vars['userId']->value) {?>
                 <div class="col-sm-4 pull-right editIcon">
                 <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -20,14 +46,16 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li>
                         <a href="#">
-                        <button class="btn btn-link btn-block editBtn" data-toggle="modal" data-target="#editPost{{$post.broad_id}}">
+                        <button class="btn btn-link btn-block editBtn" data-toggle="modal" data-target="#editPost<?php echo $_smarty_tpl->tpl_vars['post']->value['broad_id'];?>
+">
                             <span class="glyphicon glyphicon-pencil"></span> 修改
                         </button>
                         </a>
                     </li>
                         <li>
                         <a href="#">
-                        <button class="btn btn-link btn-block" data-toggle="modal" data-target="#dltPost{{$post.broad_id}}">
+                        <button class="btn btn-link btn-block" data-toggle="modal" data-target="#dltPost<?php echo $_smarty_tpl->tpl_vars['post']->value['broad_id'];?>
+">
                             <span class="glyphicon glyphicon-trash"></span> 刪除
                         </button>
                         </a>
@@ -37,7 +65,8 @@
                 </ul>
                 </div>
 
-                <div class="modal fade" id="editPost{{$post.broad_id}}" role="dialog">
+                <div class="modal fade" id="editPost<?php echo $_smarty_tpl->tpl_vars['post']->value['broad_id'];?>
+" role="dialog">
                 <div class="modal-dialog">
                 <div class="modal-content" id="messageInput">
                     <div class="modal-header">
@@ -48,9 +77,11 @@
                         <div class="enterSubmit">
                         <form method="post" action="" id="editPostForm">
                         <div class="form-group">
-                        <textarea name="editPostText" required="required" class="form-control inputField" rows="5" style="resize:none;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>{{$post.message|htmlspecialchars}}</textarea>
+                        <textarea name="editPostText" required="required" class="form-control inputField" rows="5" style="resize:none;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['post']->value['message']);?>
+</textarea>
                         </div>
-                        <input type="text" name="editPostId" value="{{$post.broad_id}}" style="display: none"/>
+                        <input type="text" name="editPostId" value="<?php echo $_smarty_tpl->tpl_vars['post']->value['broad_id'];?>
+" style="display: none"/>
                         </form>
                         <p style="font-size:10px;" class="text-muted">取消<span class="text-danger">ESC</span> 確認修改<span class="text-success">ENTER</span></p>
                         </div>
@@ -63,7 +94,8 @@
                 </div>
                 </div>
 
-                <div class="modal fade" id="dltPost{{$post.broad_id}}" role="dialog">
+                <div class="modal fade" id="dltPost<?php echo $_smarty_tpl->tpl_vars['post']->value['broad_id'];?>
+" role="dialog">
                 <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -75,7 +107,8 @@
                     </div>
                     <div class="modal-footer">
                         <form method="post" action="" id="dltPostForm">
-                            <input type="text" name="dltPostId" value="{{$post.broad_id}}" style="display: none"/>
+                            <input type="text" name="dltPostId" value="<?php echo $_smarty_tpl->tpl_vars['post']->value['broad_id'];?>
+" style="display: none"/>
                             <button type="submit" class="btn btn-success">確認</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
                         </form>
@@ -83,23 +116,25 @@
                 </div>
                 </div>
                 </div>
-            {{/if}}
+            <?php }?>
         </div><!--./row-->
 
         <div class="messageBody">
-        <pre style="border: 0; background-color: transparent; resize:none; white-space: pre-wrap;"><p id="postText">{{$post.message|htmlspecialchars}}</p></pre>
+        <pre style="border: 0; background-color: transparent; resize:none; white-space: pre-wrap;"><p id="postText"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['post']->value['message']);?>
+</p></pre>
         </div>
         
     </div><!--./editStatus-->
             
-    {{include file="blade/commentlist.tpl"}}
+    <?php $_smarty_tpl->_subTemplateRender("file:blade/commentlist.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
     </div><!--./caption-->
     </div><!--./thumbnail-->
     </div><!--./col-->
     </div><!--./row-->
 
-    {{if $loginStatus}}
+    <?php if ($_smarty_tpl->tpl_vars['loginStatus']->value) {?>
         <div class="row" style="padding-bottom: 20px;">
         <div class="col-lg-8 col-lg-offset-2">
         <div class="thumbnail">
@@ -114,7 +149,8 @@
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <button type="submit" id="submitBtn" name="newComment" value="{{$post.broad_id}}" class="btn btn-success btn-block" disabled>留言</button>
+                        <button type="submit" id="submitBtn" name="newComment" value="<?php echo $_smarty_tpl->tpl_vars['post']->value['broad_id'];?>
+" class="btn btn-success btn-block" disabled>留言</button>
                     </div>
                 </form>
                 </div>
@@ -124,7 +160,10 @@
         </div><!--./thumbnail-->
         </div><!--./col-->
         </div><!--./row-->
-    {{/if}}
+    <?php }?>
         
 </div><!--./container-->
-<script src="./js/post.js" defer></script>
+<?php echo '<script'; ?>
+ src="./js/post.js" defer><?php echo '</script'; ?>
+><?php }
+}

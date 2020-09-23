@@ -62,13 +62,14 @@
     //     }
     // }
 
-    if (isset($_POST['dltPost'])) {
+    // if (isset($_POST['dltPost'])) {
 
-        # $_POST['dltPost']'s value is broadId
-        if(!$broad->disablePost($_POST['dltPost']))
-            echo "delete post unsuccess!";
-        header('location: index');
-    }
+    //     # $_POST['dltPost']'s value is broadId
+    //     if(!$broad->disablePost($_POST['dltPost']))
+    //         echo "delete post unsuccess!";
+    //     header('location: index');
+    // }
+    
     # Condition action END
 
     # Start Show Page

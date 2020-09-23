@@ -9,7 +9,7 @@
                 <label for="textarea">新增貼文</label>
                 <textarea id="textarea" name="message" rows="3" class="form-control inputField" style="resize:none;" required="required"></textarea>
             </div>
-            <button id="submitBtn" class="btn btn-success disabled" type="submit">發佈</button>
+            <button id="submitBtn" class="btn btn-success" type="submit" disabled>發佈</button>
         </form>
     </div>
     </div>

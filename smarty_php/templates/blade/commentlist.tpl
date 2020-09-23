@@ -36,13 +36,12 @@
 
             <div class="modal fade" id="editComment{{$comment.message_id}}" role="dialog">
             <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" id="messageInput">
                 <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">修改留言</h4>
                 </div>
-                <div class="modal-body">
-                    <div class="messageInput">
+                <div class="modal-body enterSubmit">
                     <form method="post" action="" id="editCommentForm{{$comment.message_id}}">
                     <div class="form-group">
                     <textarea name="editCommentText" required="required" class="form-control inputField" rows="3" style="resize:none;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>{{$comment.message_content|htmlspecialchars}}</textarea>
@@ -50,10 +49,9 @@
                     <input type="text" name="editComment" value="{{$comment.message_id}}" style="display: none"/>
                     </form>
                     <p style="font-size:10px;" class="text-muted">取消<span class="text-danger">ESC</span> 確認修改<span class="text-success">ENTER</span></p>
-                    </div>
                 </div>
                 <div class="modal-footer">
-                <button type="submit" class="btn btn-success" form="editCommentForm{{$comment.message_id}}">確認修改</button>
+                <button type="submit" id="submitBtn" class="btn btn-success" form="editCommentForm{{$comment.message_id}}">確認修改</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
                 </div>
             </div>
