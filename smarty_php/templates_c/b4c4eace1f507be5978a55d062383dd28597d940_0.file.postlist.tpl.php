@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-22 08:25:22
+/* Smarty version 3.1.34-dev-7, created on 2020-09-23 08:44:16
   from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/postlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f69b4f285bb10_00274787',
+  'unifunc' => 'content_5f6b0ae034eb83_88670690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:blade/printpost.tpl' => 1,
   ),
 ),false)) {
-function content_5f69b4f285bb10_00274787 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6b0ae034eb83_88670690 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container">
 
     <form id="goPost" method="post" action=""></form>

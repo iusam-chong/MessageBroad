@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-21 07:45:22
+/* Smarty version 3.1.34-dev-7, created on 2020-09-23 08:44:16
   from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f685a1219c8c3_15694216',
+  'unifunc' => 'content_5f6b0ae0343654_44306117',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f685a1219c8c3_15694216 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6b0ae0343654_44306117 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-default">
 <div class="container-fluid">
 <!-- Brand and toggle get grouped for better mobile display -->

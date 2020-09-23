@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-22 08:02:49
+/* Smarty version 3.1.34-dev-7, created on 2020-09-23 08:44:16
   from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/commentlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f69afa90a23c7_57611302',
+  'unifunc' => 'content_5f6b0ae03fc736_58856042',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f69afa90a23c7_57611302 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6b0ae03fc736_58856042 (Smarty_Internal_Template $_smarty_tpl) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['commentList']->value, 'comment');
 $_smarty_tpl->tpl_vars['comment']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['comment']->value) {

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-21 09:08:59
+/* Smarty version 3.1.34-dev-7, created on 2020-09-23 09:19:40
   from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/registerform.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f686daba5ee01_27578204',
+  'unifunc' => 'content_5f6b132c6a0066_43748109',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f686daba5ee01_27578204 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6b132c6a0066_43748109 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container">
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">

@@ -46,17 +46,17 @@
                     </div>
                     <div class="modal-body">
                         <div class="messageInput">
-                        <form method="post" action="" id="editPostForm{{$post.broad_id}}">
+                        <form method="post" action="" id="editPostForm">
                         <div class="form-group">
                         <textarea name="editPostText" required="required" class="form-control inputField" rows="5" style="resize:none;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>{{$post.message|htmlspecialchars}}</textarea>
                         </div>
-                        <input type="text" name="editPost" value="{{$post.broad_id}}" style="display: none"/>
+                        <input type="text" name="editPostId" value="{{$post.broad_id}}" style="display: none"/>
                         </form>
                         <p style="font-size:10px;" class="text-muted">取消<span class="text-danger">ESC</span> 確認修改<span class="text-success">ENTER</span></p>
                         </div>
                     </div>
                     <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" form="editPostForm{{$post.broad_id}}">確認修改</button>
+                    <button type="submit" class="btn btn-success" form="editPostForm">確認修改</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
         </div><!--./row-->
 
         <div class="messageBody">
-        <pre style="border: 0; background-color: transparent; resize:none; white-space: pre-wrap;"><p>{{$post.message|htmlspecialchars}}</p></pre>
+        <pre style="border: 0; background-color: transparent; resize:none; white-space: pre-wrap;"><p id="postText">{{$post.message|htmlspecialchars}}</p></pre>
         </div>
         
     </div><!--./editStatus-->

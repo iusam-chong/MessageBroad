@@ -51,16 +51,16 @@
             echo "delete comment unsuccess!";
     }
    
-    if (isset($_POST['editPost'])) {
+    // if (isset($_POST['editPostId'])) {
 
-        # $_POST['editPost']'s value is broadId
-        $commentData = new FormatData();
-        $commentData->EditCommentForm($_POST['editPost'], $_POST['editPostText']);
+    //     # $_POST['editPost']'s value is broadId
+    //     $commentData = new FormatData();
+    //     $commentData->EditCommentForm($_POST['editPost'], $_POST['editPostText']);
 
-        if(!$broad->modifyPost($commentData)){
-            echo "edit post unsuccess!";
-        }
-    }
+    //     if(!$broad->modifyPost($commentData)){
+    //         echo "edit post unsuccess!";
+    //     }
+    // }
 
     if (isset($_POST['dltPost'])) {
 

@@ -1,5 +1,4 @@
 <?php  
-    
     require_once('./includes/class-autoload.php');
     
     $broad = new Broad();
