@@ -40,7 +40,7 @@
 
     if (!$broad->modifyPost($commentData)) {
         $returnData['status'] = 3;
-        $returnData['message'] = '新增貼文失敗，請重新再試！';
+        $returnData['message'] = '修改貼文失敗，請重新再試！';
         echo json_encode($returnData);
         exit();
     }

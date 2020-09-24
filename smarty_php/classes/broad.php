@@ -6,8 +6,7 @@ class Broad extends Dbh{
     public function createPost($message) {
 
         # Find user ID
-        $row = $this->getUserDataBySession();
-        $userId = $row['user_id'];
+        $userId = $this->getUserDataBySession();
     
         # Make a new Broad/Post
         $sql = "INSERT INTO `broad` (`user_id`,`message`) VALUES (?,?)";
@@ -133,11 +132,25 @@ class Broad extends Dbh{
     public function showMessage($broadId) {
 
         # All select has benn used!
-        $sql = "SELECT `message_id`,`message_content`,`create_time`, message.user_id,`user_name` 
+        $sql = "SELECT `message_id`,`message_content`,`create_time`, `broad_id`,message.user_id,`user_name` 
                 FROM `message`,`users` WHERE message.user_id = users.user_id AND `broad_id` = ? AND `message_enabled` = 1";
         $param = array($broadId);
         $result = $this->selectAll($sql, $param);
         
+        return $result;
+    }
+
+    public function getNewMessage($broadId) {
+        
+        $userId = $this->getUserDataBySession();
+
+        $sql = "SELECT `message_id`,`message_content`,`create_time`,`user_name`,`broad_id`
+                FROM `message`,`users` WHERE message.user_id = users.user_id 
+                AND `broad_id` = ? AND `message_enabled` = 1 
+                AND users.user_id = ? ORDER BY `create_time` DESC LIMIT 1";
+        $param = array($broadId,$userId);
+        $result = $this->select($sql,$param);
+
         return $result;
     }
 
@@ -150,15 +163,26 @@ class Broad extends Dbh{
         $param = array(session_id());
         $result = $this->select($sql, $param);
     
-        return $result;
+        return $result['user_id'];
     }
 
     public function checkBroadOwner($broadId) {
-        $row = $this->getUserDataBySession();
-        $userId = $row['user_id'];
+
+        $userId = $this->getUserDataBySession();
 
         $sql = "SELECT * FROM `broad` WHERE `user_id`= ? AND `broad_id` = ?";
         $param = array($userId,$broadId);
+        $result = $this->select($sql, $param);
+
+        return $result;
+    }
+
+    public function checkMessageOwner($broadId, $messageId) {
+
+        $userId = $this->getUserDataBySession();
+
+        $sql = "SELECT * FROM `message` WHERE `user_id`= ? AND `broad_id` = ? AND `message_id` = ?";
+        $param = array($userId,$broadId,$messageId);
         $result = $this->select($sql, $param);
 
         return $result;

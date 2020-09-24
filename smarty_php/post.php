@@ -24,32 +24,32 @@
     $broadId = $_COOKIE['postId'];
 
     # Condition action START
-    if (isset($_POST['newComment'])) {
+    // if (isset($_POST['newComment'])) {
         
-        # $_POST['newComment']'s value is broadId
-        $commentData = new FormatData();
-        $commentData->commentForm($userId, $_POST['newComment'], $_POST['newCommentText']);
+    //     # $_POST['newComment']'s value is broadId
+    //     $commentData = new FormatData();
+    //     $commentData->commentForm($userId, $_POST['newComment'], $_POST['newCommentText']);
         
-        if (!$broad->newComment($commentData))
-            echo "new comment unsuccess!"; 
-    }
+    //     if (!$broad->newComment($commentData))
+    //         echo "new comment unsuccess!"; 
+    // }
 
-    if (isset($_POST['editComment'])) {
+    // if (isset($_POST['editComment'])) {
 
-        # $_POST['editComment']'s value is broadId
-        $commentData = new FormatData();
-        $commentData->EditCommentForm($_POST['editComment'], $_POST['editCommentText']);
+    //     # $_POST['editComment']'s value is broadId
+    //     $commentData = new FormatData();
+    //     $commentData->EditCommentForm($_POST['editComment'], $_POST['editCommentText']);
     
-        if (!$broad->modifyComment($commentData))
-            echo "edit comment unsuccess!";
-    }
+    //     if (!$broad->modifyComment($commentData))
+    //         echo "edit comment unsuccess!";
+    // }
 
-    if (isset($_POST['dltComment'])) {
+    // if (isset($_POST['dltComment'])) {
 
-        # $_POST['dltComment']'s value is broadId
-        if(!$broad->disableComment($_POST['dltComment']))
-            echo "delete comment unsuccess!";
-    }
+    //     # $_POST['dltComment']'s value is broadId
+    //     if(!$broad->disableComment($_POST['dltComment']))
+    //         echo "delete comment unsuccess!";
+    // }
    
     // if (isset($_POST['editPostId'])) {
 

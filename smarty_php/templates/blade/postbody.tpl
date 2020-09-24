@@ -19,18 +19,14 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li>
-                        <a href="#">
                         <button class="btn btn-link btn-block editBtn" data-toggle="modal" data-target="#editPost{{$post.broad_id}}">
                             <span class="glyphicon glyphicon-pencil"></span> 修改
                         </button>
-                        </a>
                     </li>
                         <li>
-                        <a href="#">
                         <button class="btn btn-link btn-block" data-toggle="modal" data-target="#dltPost{{$post.broad_id}}">
                             <span class="glyphicon glyphicon-trash"></span> 刪除
                         </button>
-                        </a>
                         </li>
                     </ul>
                 </li>
@@ -44,21 +40,22 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">修改貼文</h4>
                     </div>
-                    <div class="modal-body">
-                        <div class="enterSubmit">
-                        <form method="post" action="" id="editPostForm">
-                        <div class="form-group">
-                        <textarea name="editPostText" required="required" class="form-control inputField" rows="5" style="resize:none;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>{{$post.message|htmlspecialchars}}</textarea>
+                    <form method="post" action="" id="editPostForm">
+                        <div class="modal-body">
+                            <div class="enterSubmit">
+                            <div class="form-group">
+                            <textarea name="editPostText" required="required" class="form-control inputField" rows="5" style="resize:none;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>{{$post.message|htmlspecialchars}}</textarea>
+                            </div>
+                            <input type="text" name="editPostId" value="{{$post.broad_id}}" style="display: none"/>
+                            
+                            <p style="font-size:10px;" class="text-muted">取消<span class="text-danger">ESC</span> 確認修改<span class="text-success">ENTER</span></p>
+                            </div>
                         </div>
-                        <input type="text" name="editPostId" value="{{$post.broad_id}}" style="display: none"/>
-                        </form>
-                        <p style="font-size:10px;" class="text-muted">取消<span class="text-danger">ESC</span> 確認修改<span class="text-success">ENTER</span></p>
+                        <div class="modal-footer">
+                        <button type="submit" id="submitBtn" class="btn btn-success submitBtn" form="editPostForm">確認修改</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="submit" id="submitBtn" class="btn btn-success" form="editPostForm">確認修改</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
-                    </div>
+                    </form>
                 </div>
                 </div>
                 </div>
@@ -91,8 +88,10 @@
         </div>
         
     </div><!--./editStatus-->
-            
+    
+    <div id="messageList">
     {{include file="blade/commentlist.tpl"}}
+    </div>
 
     </div><!--./caption-->
     </div><!--./thumbnail-->
@@ -107,14 +106,15 @@
             <div class="thumbnail" style="border: 0 none;">
             <div class="caption">
                 <div class="row" id="messageInput">
-                <form method="post" action="">
+                <form method="post" action="" id="newCmntForm">
                     <div class="col-sm-12">
                         <div class="form-group">
                         <textarea name="newCommentText" rows="3" required="required" class="form-control" placeholder="輸入您的留言" style="resize:none;"></textarea>
+                        <input type="hidden" name="newComment" value="{{$post.broad_id}}" style="display: none"/>
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <button type="submit" id="submitBtn" name="newComment" value="{{$post.broad_id}}" class="btn btn-success btn-block" disabled>留言</button>
+                        <button type="submit" id="submitBtn" class="btn btn-success btn-block submitBtn" disabled>留言</button>
                     </div>
                 </form>
                 </div>
@@ -127,4 +127,4 @@
     {{/if}}
         
 </div><!--./container-->
-<script src="./js/post.js" defer></script>
+<script type="module" src="./js/post.js" defer></script>
