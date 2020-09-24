@@ -36,7 +36,7 @@
     $broadData = $broad->showLimitBroad(0);
     
     # Start Show Page
-    header("Cache-control: no-cache");
+    header("Cache-control: no-store");
     //require_once('./views/home.page.php');
     $smarty = new Smarty;
     $smarty->assign('loginStatus', $loginStatus);

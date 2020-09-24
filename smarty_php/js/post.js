@@ -29,20 +29,15 @@ $(function() {
         }
     });
 
-    $(".dltSubmit").click(function(e) {
-
-        e.preventDefault();
-        $(this).closest('form').submit();
-    });
-
-    $('.dltCommentForm').submit(function(e) {
+    //$('.dltCommentForm').submit(function(e) {
+    $("#messageList").on("submit",".dltCommentForm",function(e) {    
 
         e.preventDefault();
         deleteComment($(this));
     });
 
-    $(".editSubmit").click(function(e) {
-        
+    // $(".editSubmit").on("click",function(e) {
+    $("#messageList").on("click",".editSubmit",function(e) {    
         e.preventDefault();
 
         if ($(this).closest('form').find('textarea').val().trim().length > 0) {
@@ -51,8 +46,8 @@ $(function() {
         }
     });
 
-    $(".editCommentForm").submit(function(e) {
-        
+    //$(".editCommentForm").submit(function(e) {
+    $("#messageList").on("submit",".editCommentForm",function(e) {   
         e.preventDefault();
         
         console.log($(this).find('textarea').val());

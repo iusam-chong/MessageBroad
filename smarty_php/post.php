@@ -82,7 +82,7 @@
     $messageData = $broad->showMessage($broadId);
     // print_r($broadData);
 
-    header("Cache-control: private");
+    header("Cache-control: no-store");
     $smarty = new Smarty;
     $smarty->assign('loginStatus', $loginStatus);
 
