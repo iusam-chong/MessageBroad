@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-24 17:09:42
-  from 'C:\Users\ALPHA\Documents\Github\smarty_php\templates\blade\postlist.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-25 02:41:09
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/postlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6cb6b6606db5_95148737',
+  'unifunc' => 'content_5f6d58c5f13f43_47832061',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '706d40571cc8f4c44fe7da3a07eb5da09834acc8' => 
+    'b4c4eace1f507be5978a55d062383dd28597d940' => 
     array (
-      0 => 'C:\\Users\\ALPHA\\Documents\\Github\\smarty_php\\templates\\blade\\postlist.tpl',
-      1 => 1600860380,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/postlist.tpl',
+      1 => 1600763119,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:blade/printpost.tpl' => 1,
   ),
 ),false)) {
-function content_5f6cb6b6606db5_95148737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6d58c5f13f43_47832061 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container">
 
     <form id="goPost" method="post" action=""></form>

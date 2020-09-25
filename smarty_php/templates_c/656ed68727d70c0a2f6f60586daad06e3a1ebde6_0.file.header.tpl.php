@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-24 17:09:42
-  from 'C:\Users\ALPHA\Documents\Github\smarty_php\templates\blade\header.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-25 02:33:46
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6cb6b6513913_19150649',
+  'unifunc' => 'content_5f6d570a6b5777_62675217',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7b8094618cc28f199945544d29caf859b0855403' => 
+    '656ed68727d70c0a2f6f60586daad06e3a1ebde6' => 
     array (
-      0 => 'C:\\Users\\ALPHA\\Documents\\Github\\smarty_php\\templates\\blade\\header.tpl',
-      1 => 1600860380,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/header.tpl',
+      1 => 1600736275,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f6cb6b6513913_19150649 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6d570a6b5777_62675217 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

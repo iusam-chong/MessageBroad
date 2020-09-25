@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-24 17:10:38
-  from 'C:\Users\ALPHA\Documents\Github\smarty_php\templates\blade\postbody.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-25 02:43:23
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/postbody.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6cb6eed5a937_92186910',
+  'unifunc' => 'content_5f6d594b40df30_78314541',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '595ff248b5bb6b3877ef33a6fe8a118d9c549e96' => 
+    '57d1839ee260aec956df21f6fc8c51c9f74f4549' => 
     array (
-      0 => 'C:\\Users\\ALPHA\\Documents\\Github\\smarty_php\\templates\\blade\\postbody.tpl',
-      1 => 1600960133,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/postbody.tpl',
+      1 => 1600940806,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:blade/commentlist.tpl' => 1,
   ),
 ),false)) {
-function content_5f6cb6eed5a937_92186910 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6d594b40df30_78314541 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container">
     <div class="row">
     <div class="col-lg-8 col-lg-offset-2">

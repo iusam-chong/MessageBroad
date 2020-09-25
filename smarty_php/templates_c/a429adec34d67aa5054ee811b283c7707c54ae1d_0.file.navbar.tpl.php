@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-24 17:09:42
-  from 'C:\Users\ALPHA\Documents\Github\smarty_php\templates\blade\navbar.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-25 02:33:46
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6cb6b6588cd0_56595848',
+  'unifunc' => 'content_5f6d570a6bda07_38823110',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7bf19c4cb28163b330cc3f618dd15954ca37cd73' => 
+    'a429adec34d67aa5054ee811b283c7707c54ae1d' => 
     array (
-      0 => 'C:\\Users\\ALPHA\\Documents\\Github\\smarty_php\\templates\\blade\\navbar.tpl',
-      1 => 1600683249,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/navbar.tpl',
+      1 => 1600674319,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f6cb6b6588cd0_56595848 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6d570a6bda07_38823110 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-default">
 <div class="container-fluid">
 <!-- Brand and toggle get grouped for better mobile display -->

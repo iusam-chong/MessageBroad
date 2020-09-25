@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-24 17:10:38
-  from 'C:\Users\ALPHA\Documents\Github\smarty_php\templates\blade\commentlist.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-25 02:43:23
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/commentlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6cb6eedd9875_50244999',
+  'unifunc' => 'content_5f6d594b428293_03666531',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '232589d58d8181d32b76225ebb5a1f1fa7fece37' => 
+    'f4db14fb4f02c37b197c4818e1e3e701dde7a96b' => 
     array (
-      0 => 'C:\\Users\\ALPHA\\Documents\\Github\\smarty_php\\templates\\blade\\commentlist.tpl',
-      1 => 1600960133,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/commentlist.tpl',
+      1 => 1600940014,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f6cb6eedd9875_50244999 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6d594b428293_03666531 (Smarty_Internal_Template $_smarty_tpl) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['commentList']->value, 'comment');
 $_smarty_tpl->tpl_vars['comment']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['comment']->value) {

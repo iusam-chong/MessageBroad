@@ -3,7 +3,7 @@
 class Dbh {
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "";
+    private $pwd = "root";
     private $dbName = "message_broad";
     private $charset = "utf8mb4";
 

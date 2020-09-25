@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-24 17:09:42
-  from 'C:\Users\ALPHA\Documents\Github\smarty_php\templates\blade\postForm.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-09-25 02:41:09
+  from '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/postForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6cb6b65d0724_10344149',
+  'unifunc' => 'content_5f6d58c5f0e664_30379341',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7b14a56e64186bcf6155c460e7288c7ec96feb42' => 
+    'b3edf76391ea5736afdd31a20799ced981a1af96' => 
     array (
-      0 => 'C:\\Users\\ALPHA\\Documents\\Github\\smarty_php\\templates\\blade\\postForm.tpl',
-      1 => 1600868535,
+      0 => '/Users/sam_chong/Documents/Github/smarty_php/templates/blade/postForm.tpl',
+      1 => 1600907530,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f6cb6b65d0724_10344149 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6d58c5f0e664_30379341 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['loginStatus']->value) {?>
 <div class="container">
     <div class="row">
