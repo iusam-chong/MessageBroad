@@ -46,6 +46,7 @@ public function manualLogin($data): bool {
    
     return true;
 }
+//v6k7bid9f8v21vqb406tha33b3
 
 # Session login, without user manual login
 public function sessionLogin(): bool {
@@ -56,7 +57,7 @@ public function sessionLogin(): bool {
         # Search conditions if set session from db 
         # And login haven't timeout and user still enabled
         $sql = "SELECT * FROM `user_sessions`, `users` WHERE (user_sessions.session_id = ?) 
-                AND (user_sessions.login_time >= (NOW() - INTERVAL 30 MINUTE)) 
+                AND (user_sessions.login_time >= (NOW() - INTERVAL 15 SECOND)) 
                 AND (user_sessions.user_id = users.user_id) 
                 AND (users.user_enabled = 1)";
         $param = array(session_id());
